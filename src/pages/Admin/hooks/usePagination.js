@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { arrowHandler, getEmptyArray } from '../utils';
+import { getEmptyArray } from '../utils';
 
 const PAGES_PER_LIST = 5;
 
@@ -13,14 +13,29 @@ const usePagination = ({ totalPage, currentPage, setCurrentPage }) => {
   const isLastPage = showingNum.end === totalPage;
   const pages = getEmptyArray(showingNum.start, showingNum.end);
 
+  const updateCurrentPageNumbers = (prev, sign, totalPage) => {
+    const PAGES_PER_LIST = 5;
+    const nextIndex = prev.end + PAGES_PER_LIST;
+    let res;
+    if (sign === 1) {
+      res = nextIndex > totalPage ? totalPage : nextIndex;
+    } else if (sign === -1) {
+      res =
+        prev.end - prev.start < 4
+          ? prev.start + 4 - PAGES_PER_LIST
+          : prev.end - PAGES_PER_LIST;
+    }
+    return { ...prev, start: prev.start + PAGES_PER_LIST * sign, end: res };
+  };
+
   const changePageNumbersBackward = () => {
     currentPage > PAGES_PER_LIST &&
-      setShowingNum(prev => arrowHandler(prev, -1, totalPage));
+      setShowingNum(prev => updateCurrentPageNumbers(prev, -1, totalPage));
   };
 
   const changePageNumberForward = () => {
     showingNum.end <= totalPage &&
-      setShowingNum(prev => arrowHandler(prev, 1, totalPage));
+      setShowingNum(prev => updateCurrentPageNumbers(prev, 1, totalPage));
   };
 
   useEffect(() => {
