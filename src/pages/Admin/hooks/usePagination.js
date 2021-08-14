@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import { getEmptyArray } from '../utils';
-
 const PAGES_PER_LIST = 5;
 
 const usePagination = ({ totalPage, currentPage, setCurrentPage }) => {
@@ -11,7 +9,13 @@ const usePagination = ({ totalPage, currentPage, setCurrentPage }) => {
   });
   const isFirstPage = showingNum.start === 1;
   const isLastPage = showingNum.end === totalPage;
-  const pages = getEmptyArray(showingNum.start, showingNum.end);
+
+  const pages = Array.from(
+    { length: showingNum.end + 1 - showingNum.start },
+    (_, i) => {
+      return showingNum.start + i;
+    },
+  );
 
   const updateCurrentPageNumbers = (prev, sign, totalPage) => {
     const PAGES_PER_LIST = 5;
