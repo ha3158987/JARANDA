@@ -1,8 +1,9 @@
-import styled from '@emotion/styled';
-import Dropdown from 'components/Dropdown/DropDown';
 import React from 'react';
+import styled from '@emotion/styled';
 import { RiArrowDownSFill } from 'react-icons/ri';
 import { BsFillInboxFill } from 'react-icons/bs';
+
+import Dropdown from 'components/Dropdown';
 import { setUserInfo } from 'services/utils/LocalStorageWorker';
 import USER from 'constants/user';
 import ROLE, { ROLE_KR } from 'constants/role';
