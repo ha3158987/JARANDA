@@ -1,42 +1,18 @@
 import styled from '@emotion/styled';
-import { useState, useEffect } from 'react';
 
-import { arrowHandler, getEmptyArray } from './utils';
+import usePagination from './hooks/usePagination';
+
 import PageButton from './PageButton';
 import ArrowButton from './ArrowButton';
 
-const PAGES_PER_LIST = 5;
-
 export default function Pagination({ totalPage, currentPage, setCurrentPage }) {
-  const [showingNum, setShowingNum] = useState({
-    start: 1,
-    end: PAGES_PER_LIST,
-  });
-
-  const changePageNumbersBackward = () => {
-    currentPage > PAGES_PER_LIST &&
-      setShowingNum(prev => arrowHandler(prev, -1, totalPage));
-  };
-
-  const changePageNumberForward = () => {
-    showingNum.end <= totalPage &&
-      setShowingNum(prev => arrowHandler(prev, 1, totalPage));
-  };
-
-  useEffect(() => {
-    const lessThanFive = totalPage <= PAGES_PER_LIST;
-    lessThanFive
-      ? setShowingNum(prev => ({ ...prev, start: 1, end: totalPage }))
-      : setShowingNum(prev => ({ ...prev, start: 1, end: PAGES_PER_LIST }));
-  }, [totalPage]);
-
-  useEffect(() => {
-    setCurrentPage(showingNum.start);
-  }, [showingNum, setCurrentPage]);
-
-  const isFirstPage = showingNum.start === 1;
-  const isLastPage = showingNum.end === totalPage;
-  const pages = getEmptyArray(showingNum.start, showingNum.end);
+  const {
+    pages,
+    isFirstPage,
+    isLastPage,
+    changePageNumbersBackward,
+    changePageNumberForward,
+  } = usePagination({ totalPage, currentPage, setCurrentPage });
 
   return (
     <PageListContainer>
