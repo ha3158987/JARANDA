@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import React, { useCallback, useEffect, useState } from 'react';
 import USER from 'constants/user.js';
-import Dropdown from 'components/Dropdown/DropDown';
+import Dropdown from 'components/Dropdown';
 import { RiArrowDownSFill } from 'react-icons/ri';
-import useDebounce from 'utils/hooks/useDebounce';
+import useDebounce from './hooks/useDebounce';
 import { searchUsersByOption } from 'services/utils/searchUsersByOption.js';
 
 const SearchBoxContainer = styled.div`
