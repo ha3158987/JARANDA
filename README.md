@@ -1,8 +1,22 @@
 # 🧒 Jaranda FE Assignment
 
-## 팀 로그
+---
 
-### 1️⃣ <a href="https://nr2p.notion.site/nr2p/2021-Log-bef44b60fb944793a1586fc37ced1e8b" target="_blank">Team Log</a>
+# 👩🏻‍💻 [개인과제] Refactoring
+
+## 1️⃣ 변경사항
+
+- util 재정의 및 `usePagination` custom hook 생성
+- 라이브러리(lodash) 사용 부분 직접 구현
+- 폴더 구조 및 import 방식 변경
+
+## 2️⃣ 리팩토링 상세내역 보러가기
+
+<a href="https://hyunahpark.notion.site/00b7693449284041bca5abae14bea0db" target="_blank"> Click</a> 시 Notion으로 이동
+
+---
+
+# 🚀 시작하기
 
 ### 설치
 
@@ -15,6 +29,12 @@
 ```
 yarn start
 ```
+
+---
+
+# 📒 팀 로그 보러가기
+
+### <a href="https://nr2p.notion.site/nr2p/2021-Log-bef44b60fb944793a1586fc37ced1e8b" target="_blank">➡️ Click</a>
 
 ---
 
@@ -43,8 +63,8 @@ yarn start
 ## 부모님
 
 | ID      | Password  |
-| ------- | --------- | 
-| parent1 | parent123 | 
+| ------- | --------- |
+| parent1 | parent123 |
 
 ---
 
