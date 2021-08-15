@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import SearchBox from 'pages/Admin/SearchBox.jsx';
-import Table from 'components/Table/table';
-import { AiOutlineUserAdd } from 'react-icons/ai';
 import styled from '@emotion/styled';
-import TableHeader from 'components/Table/tableHeader';
-import Pagination from 'pages/Admin/Pagination';
+import { AiOutlineUserAdd } from 'react-icons/ai';
+
+import Table, { TableHeader } from 'components/Table';
+import SearchBox from 'components/SearchBox';
+import Pagination from 'components/Pagination';
 
 import { localStorageHelper } from 'utils/localStorageHelper';
 import LS_KEY from 'constants/localStorageKey';
